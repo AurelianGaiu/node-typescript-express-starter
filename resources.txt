@@ -1,9 +1,0 @@
-# NODE AND TYPESCRIPT
-  https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript
-# TYPESCRIPT AND NODEMON
-  https://stackoverflow.com/questions/38276862/is-there-a-way-to-use-npm-scripts-to-run-tsc-watch-nodemon-watch
-  ! See the comment sections
-# SETUP .ENV FILES
-  https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786
-  ! Using multiple .ENV FILES
-  https://stackoverflow.com/questions/55406055/how-to-use-multiple-env-files-like-env-development-with-express-js
