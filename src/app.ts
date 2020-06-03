@@ -1,16 +1,21 @@
 import express from 'express';
-import { environment } from './environments/environment';
+import { BaseController } from './controllers/base.controller';
 
-const app = express();
-const port = environment.PORT;
-
-app.get('/', (req, res) => {
-  res.send('The sedulous hyena ate the antelope!');
-});
-
-app.listen(port, (err) => {
-  if (err) {
-    return console.error(err);
+export class ApplicationInitializer {
+  private _app: express.Application;
+  public get app(): express.Application {
+    return this._app;
   }
-  return console.log(`server is listening on ${port}`);
-});
+
+  constructor(controllers: BaseController[]) {
+    this._app = express();
+
+    this._initializeControllers(controllers);
+  }
+
+  _initializeControllers(controllers: BaseController[]) {
+    controllers.forEach(controller => {
+      this._app.use('/', controller.router);
+    })
+  }
+}
