@@ -1,5 +1,6 @@
 import express from 'express';
-import { BaseController } from './base.controller';
+import { BaseController } from '../../abstract/base.controller';
+import { authorize } from './../middlewares/auth-verify';
 
 export class PostsController extends BaseController {
   public path = '/posts';
@@ -10,10 +11,11 @@ export class PostsController extends BaseController {
   }
 
   initializeRoutes() {
-    this.router.get(this.path, this.getAllPosts);
+    this.router.get(this.path, authorize, this.getAllPosts);
   }
 
   getAllPosts(req: express.Request, res: express.Response) {
-    res.send('foo');
+    console.log('req', req);
+    res.send(req.token);
   }
 }

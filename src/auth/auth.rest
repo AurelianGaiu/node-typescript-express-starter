@@ -1,0 +1,18 @@
+### REGISTER REQUEST
+POST http://localhost:7777/auth/register HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Aurelian",
+  "lastName": "Gaiu",
+  "email": "aurelian.gaiu11@gmail.com",
+  "password": "123456"
+}
+### LOGIN REQUEST
+POST http://localhost:7777/auth/login HTTP/1.1
+content-type: application/json
+
+{
+  "email": "aurelian.gaiu11@gmail.com",
+  "password": "123456"
+}

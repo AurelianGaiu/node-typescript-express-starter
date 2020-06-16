@@ -1,5 +1,5 @@
 import express from 'express';
-import { BaseController } from './controllers/base.controller';
+import { BaseController } from './abstract/base.controller';
 
 export class ApplicationInitializer {
   private _app: express.Application;
@@ -15,7 +15,7 @@ export class ApplicationInitializer {
 
   _initializeControllers(controllers: BaseController[]) {
     controllers.forEach(controller => {
-      this._app.use('/', controller.router);
+      this._app.use('/api', controller.router);
     })
   }
 }

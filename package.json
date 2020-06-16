@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch-ts": "tsc -w",
-    "watch-node": "nodemon dist/server.js",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"npm run watch-ts\" \"npm run watch-node\""
+    "app:watch-ts": "tsc -w",
+    "app:watch-node": "nodemon dist/application-server.js",
+    "app:watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"npm run app:watch-ts\" \"npm run app:watch-node\"",
+    "auth:watch-ts": "tsc -w",
+    "auth:watch-node": "nodemon --inspect dist/authentication-server.js",
+    "auth:watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"npm run auth:watch-ts\" \"npm run auth:watch-node\""
   },
   "author": "",
   "license": "ISC",
@@ -17,8 +20,16 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "@types/bcrypt": "^3.0.0",
+    "@types/hapi__joi": "^17.1.2",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mongoose": "^5.7.21",
+    "bcrypt": "^4.0.1",
     "concurrently": "^5.2.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.17"
   }
 }
